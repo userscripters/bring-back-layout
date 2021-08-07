@@ -7,11 +7,9 @@
         if (!profileElem) return console.debug("missing profile avatar");
 
         const aboutMeContent = d.querySelector(".s-prose");
-        const aboutMeElem = aboutMeContent?.closest(".flex--item");
+        const aboutMeElem = aboutMeContent?.closest("#user-card > .flex--item");
         if (!aboutMeContent || !aboutMeElem)
             return console.debug("missing about me element");
-
-        aboutMeContent.parentElement?.classList.add("mb48");
 
         const leftSidebar = d
             .querySelector(".communities")
@@ -20,12 +18,17 @@
 
         leftSidebar.classList.add("mt48");
 
-        const bottomIds = ["badges", "top-tags", "top-posts"];
-        const bottomElems = bottomIds
-            .map((id) => d.getElementById(id)!)
-            .filter(Boolean);
+        const statsWrap = d.querySelector("#badges")?.closest(".d-flex");
+        if (!statsWrap) return console.debug("missing stats element");
+
+        statsWrap.classList.add("mt32");
+
+        statsWrap.classList.add("d-flex", "fd-column");
+        [...statsWrap.children].forEach((stat) =>
+            stat.classList.add("flex--item")
+        );
 
         profileElem.append(leftSidebar);
-        aboutMeElem.append(...bottomElems);
+        aboutMeElem.append(statsWrap);
     });
 })(window, document);

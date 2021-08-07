@@ -27,20 +27,21 @@
         if (!profileElem)
             return console.debug("missing profile avatar");
         const aboutMeContent = d.querySelector(".s-prose");
-        const aboutMeElem = aboutMeContent === null || aboutMeContent === void 0 ? void 0 : aboutMeContent.closest(".flex--item");
+        const aboutMeElem = aboutMeContent === null || aboutMeContent === void 0 ? void 0 : aboutMeContent.closest("#user-card > .flex--item");
         if (!aboutMeContent || !aboutMeElem)
             return console.debug("missing about me element");
-        (_b = aboutMeContent.parentElement) === null || _b === void 0 ? void 0 : _b.classList.add("mb48");
-        const leftSidebar = (_c = d
-            .querySelector(".communities")) === null || _c === void 0 ? void 0 : _c.closest(".flex--item:is(.row > .flex--item)");
+        const leftSidebar = (_b = d
+            .querySelector(".communities")) === null || _b === void 0 ? void 0 : _b.closest(".flex--item:is(.row > .flex--item)");
         if (!leftSidebar)
             return console.debug("missing left sidebar element");
         leftSidebar.classList.add("mt48");
-        const bottomIds = ["badges", "top-tags", "top-posts"];
-        const bottomElems = bottomIds
-            .map((id) => d.getElementById(id))
-            .filter(Boolean);
+        const statsWrap = (_c = d.querySelector("#badges")) === null || _c === void 0 ? void 0 : _c.closest(".d-flex");
+        if (!statsWrap)
+            return console.debug("missing stats element");
+        statsWrap.classList.add("mt48");
+        statsWrap.classList.add("d-flex", "fd-column");
+        [...statsWrap.children].forEach((stat) => stat.classList.add("flex--item"));
         profileElem.append(leftSidebar);
-        aboutMeElem.append(...bottomElems);
+        aboutMeElem.append(statsWrap);
     });
 })(window, document);
