@@ -10,6 +10,6 @@
 
 # Support
 
-Bug reports for the project should be [submitted here](undefined).
+Bug reports for the project should be [submitted here](https://github.com/userscripters/bring-back-layout/issues).
 <br>Before adding a new one, please check if it hasn't been raised before.
   
