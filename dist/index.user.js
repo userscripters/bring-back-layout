@@ -13,7 +13,7 @@
 // @namespace       userscripters
 // @source          git@github.com:userscripters/bring-back-layout.git
 // @supportURL      https://github.com/userscripters/bring-back-layout/issues
-// @version         0.1.0
+// @version         0.2.0
 // ==/UserScript==
 
 "use strict";
@@ -38,7 +38,7 @@
         const statsWrap = (_c = d.querySelector("#badges")) === null || _c === void 0 ? void 0 : _c.closest(".d-flex");
         if (!statsWrap)
             return console.debug("missing stats element");
-        statsWrap.classList.add("mt48");
+        statsWrap.classList.add("mt32");
         statsWrap.classList.add("d-flex", "fd-column");
         [...statsWrap.children].forEach((stat) => stat.classList.add("flex--item"));
         profileElem.append(leftSidebar);
