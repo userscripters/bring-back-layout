@@ -13,5 +13,5 @@
 // @namespace       userscripters
 // @source          git@github.com:userscripters/bring-back-layout.git
 // @supportURL      https://github.com/userscripters/bring-back-layout/issues
-// @version         0.2.0
+// @version         0.3.0
 // ==/UserScript==
