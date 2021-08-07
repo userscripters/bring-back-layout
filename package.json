@@ -24,13 +24,15 @@
   "scripts": {
     "test": "echo 'no tests for now'",
     "clean": "rm -rf dist",
-    "build": "npm run clean && tsc && npm run headers && npm run readme",
+    "uglify": "uglifyjs dist/index.user.js --compress --mangle -o dist/index.min.user.js",
+    "build": "npm run clean && tsc && npm run uglify && npm run headers && npm run readme",
     "headers": "bash ./scripts/headers.sh",
     "readme": "generate-readme"
   },
   "devDependencies": {
     "@userscripters/generate-headers": "^1.6.4",
     "@userscripters/generate-readme": "^1.1.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "uglify-js": "^3.14.1"
   }
 }
