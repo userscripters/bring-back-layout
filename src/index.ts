@@ -21,12 +21,15 @@
         const statsWrap = d.querySelector("#badges")?.closest(".d-flex");
         if (!statsWrap) return console.debug("missing stats element");
 
-        statsWrap.classList.add("mt32");
+        statsWrap.classList.add("mt16");
 
-        statsWrap.classList.add("d-flex", "fd-column");
-        [...statsWrap.children].forEach((stat) =>
-            stat.classList.add("flex--item")
+        statsWrap.classList.add("fd-column");
+
+        const statItems = statsWrap.querySelectorAll(
+            "#badges, #top-tags, #top-posts"
         );
+        statItems.forEach((stat) => stat.classList.add("flex--item"));
+        statsWrap.append(...statItems);
 
         profileElem.append(leftSidebar);
         aboutMeElem.append(statsWrap);
