@@ -1,0 +1,36 @@
+{
+  "name": "@userscripters/bring-back-layout",
+  "description": "Fix SE layout issues without waiting 6 to 8 weeks",
+  "keywords": [
+    "stackexchange",
+    "layout",
+    "design"
+  ],
+  "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
+  "author": {
+    "name": "Oleg Valter",
+    "email": "oleg.a.valter@gmail.com"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:userscripters/bring-back-layout.git"
+  },
+  "bugs": {
+    "url": "https://github.com/userscripters/bring-back-layout/issues"
+  },
+  "homepage": "https://github.com/userscripters/bring-back-layout#readme",
+  "scripts": {
+    "test": "echo 'no tests for now'",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc && npm run headers && npm run readme",
+    "headers": "bash ./scripts/headers.sh",
+    "readme": "generate-readme"
+  },
+  "devDependencies": {
+    "@userscripters/generate-headers": "^1.6.4",
+    "@userscripters/generate-readme": "^1.1.0",
+    "typescript": "^4.3.5"
+  }
+}
