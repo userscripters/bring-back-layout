@@ -27,9 +27,14 @@
         sheet.insertRule(`.container, .site-header--container, #content {
                 max-width: unset !important;
             }`);
-        sheet.insertRule(`.left-sidebar, .site-header--container {
+        sheet.insertRule(`.left-sidebar,
+            .site-header--container,
+            .site-footer--container {
                 margin: 0 1vw !important;
             }`);
+        sheet.insertRule(`.profile-cards {
+            justify-content: space-between;
+        }`);
     };
     w.addEventListener("load", () => {
         var _a, _b, _c;

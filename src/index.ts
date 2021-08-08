@@ -14,10 +14,17 @@
 
         /* separates left sidebar from viewport limits a little */
         sheet.insertRule(
-            `.left-sidebar, .site-header--container {
+            `.left-sidebar,
+            .site-header--container,
+            .site-footer--container {
                 margin: 0 1vw !important;
             }`
         );
+
+        /* make activity tab use fullwidth better */
+        sheet.insertRule(`.profile-cards {
+            justify-content: space-between;
+        }`);
     };
 
     w.addEventListener("load", () => {
