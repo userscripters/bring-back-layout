@@ -6,11 +6,18 @@
         if (!sheet) return;
 
         /* removes arbitrary restriction on used page width */
-        sheet.insertRule(`.container { max-width: unset !important; }`);
-        sheet.insertRule(`#content { max-width: unset !important; }`);
+        sheet.insertRule(
+            `.container, .site-header--container, #content {
+                max-width: unset !important;
+            }`
+        );
 
         /* separates left sidebar from viewport limits a little */
-        sheet.insertRule(`.left-sidebar { margin: 0 1vw; }`);
+        sheet.insertRule(
+            `.left-sidebar, .site-header--container {
+                margin: 0 1vw;
+            }`
+        );
     };
 
     w.addEventListener("load", () => {

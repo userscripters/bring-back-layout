@@ -24,9 +24,12 @@
         const { sheet } = style;
         if (!sheet)
             return;
-        sheet.insertRule(`.container { max-width: unset !important; }`);
-        sheet.insertRule(`#content { max-width: unset !important; }`);
-        sheet.insertRule(`.left-sidebar { margin: 0 1vw; }`);
+        sheet.insertRule(`.container, .site-header--container, #content {
+                max-width: unset !important;
+            }`);
+        sheet.insertRule(`.left-sidebar, .site-header--container {
+                margin: 0 1vw;
+            }`);
     };
     w.addEventListener("load", () => {
         var _a, _b, _c;
