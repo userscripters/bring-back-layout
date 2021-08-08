@@ -15,7 +15,7 @@
         /* separates left sidebar from viewport limits a little */
         sheet.insertRule(
             `.left-sidebar, .site-header--container {
-                margin: 0 1vw;
+                margin: 0 1vw !important;
             }`
         );
     };

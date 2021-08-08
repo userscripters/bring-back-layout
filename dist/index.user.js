@@ -28,7 +28,7 @@
                 max-width: unset !important;
             }`);
         sheet.insertRule(`.left-sidebar, .site-header--container {
-                margin: 0 1vw;
+                margin: 0 1vw !important;
             }`);
     };
     w.addEventListener("load", () => {
