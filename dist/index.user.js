@@ -18,8 +18,19 @@
 
 "use strict";
 ((w, d) => {
+    const addStyles = (d) => {
+        const style = d.createElement("style");
+        d.head.append(style);
+        const { sheet } = style;
+        if (!sheet)
+            return;
+        sheet.insertRule(`.container { max-width: unset !important; }`);
+        sheet.insertRule(`#content { max-width: unset !important; }`);
+        sheet.insertRule(`.left-sidebar { margin: 0 1vw; }`);
+    };
     w.addEventListener("load", () => {
         var _a, _b, _c;
+        addStyles(d);
         const main = d.getElementById("main-content");
         if (!main)
             return console.debug("missing main");

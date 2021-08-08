@@ -1,5 +1,21 @@
 ((w, d) => {
+    const addStyles = (d: Document) => {
+        const style = d.createElement("style");
+        d.head.append(style);
+        const { sheet } = style;
+        if (!sheet) return;
+
+        /* removes arbitrary restriction on used page width */
+        sheet.insertRule(`.container { max-width: unset !important; }`);
+        sheet.insertRule(`#content { max-width: unset !important; }`);
+
+        /* separates left sidebar from viewport limits a little */
+        sheet.insertRule(`.left-sidebar { margin: 0 1vw; }`);
+    };
+
     w.addEventListener("load", () => {
+        addStyles(d);
+
         const main = d.getElementById("main-content");
         if (!main) return console.debug("missing main");
 
