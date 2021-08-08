@@ -13,7 +13,7 @@
 // @namespace       userscripters
 // @source          git@github.com:userscripters/bring-back-layout.git
 // @supportURL      https://github.com/userscripters/bring-back-layout/issues
-// @version         0.5.0
+// @version         0.5.1
 // ==/UserScript==
 
 "use strict";((e,r)=>{e.addEventListener("load",()=>{var e;if((e=>{var t=e.createElement("style");e.head.append(t);const s=t["sheet"];s&&(s.insertRule(`.container, .site-header--container, #content {
