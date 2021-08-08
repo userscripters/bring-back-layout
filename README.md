@@ -6,7 +6,7 @@
 | Name         | @userscripters/bring-back-layout    |
 | Description  | Fix SE layout issues without waiting 6 to 8 weeks           |
 | License      | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later)                 |
-| Version      | 0.5.1               |
+| Version      | 0.6.0               |
 
 # Support
 

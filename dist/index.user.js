@@ -13,7 +13,7 @@
 // @namespace       userscripters
 // @source          git@github.com:userscripters/bring-back-layout.git
 // @supportURL      https://github.com/userscripters/bring-back-layout/issues
-// @version         0.5.1
+// @version         0.6.0
 // ==/UserScript==
 
 "use strict";
