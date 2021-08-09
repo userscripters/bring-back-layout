@@ -7,20 +7,33 @@
 
         /* removes arbitrary restriction on used page width */
         sheet.insertRule(
-            `.container, .site-header--container, #content {
+            `.container,
+            .site-header--container,
+            .site-footer--container,
+            .site-footer--extra,
+            #content {
                 max-width: unset !important;
+                width: unset !important;
             }`
         );
 
-        /* separates left sidebar from viewport limits a little */
+        /* makes left and right margin universally smaller */
         sheet.insertRule(
             `.left-sidebar,
-            .site-header--container,
-            .site-footer--container,
-            .top-bar [role=menubar] {
+            .site-header--link,
+            #content {
                 margin: 0 1vw !important;
             }`
         );
+
+        sheet.insertRule(
+            `.site-footer--container {
+                width: unset !important;
+                padding-right: 0;
+            }`
+        );
+
+        sheet.insertRule(`.site-header--container { margin: 0 !important; }`);
 
         /* make activity tab use fullwidth better */
         sheet.insertRule(`.profile-cards {

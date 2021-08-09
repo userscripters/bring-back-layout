@@ -24,15 +24,24 @@
         const { sheet } = style;
         if (!sheet)
             return;
-        sheet.insertRule(`.container, .site-header--container, #content {
-                max-width: unset !important;
-            }`);
-        sheet.insertRule(`.left-sidebar,
+        sheet.insertRule(`.container,
             .site-header--container,
             .site-footer--container,
-            .top-bar [role=menubar] {
+            .site-footer--extra,
+            #content {
+                max-width: unset !important;
+                width: unset !important;
+            }`);
+        sheet.insertRule(`.left-sidebar,
+            .site-header--link,
+            #content {
                 margin: 0 1vw !important;
             }`);
+        sheet.insertRule(`.site-footer--container {
+                width: unset !important;
+                padding-right: 0;
+            }`);
+        sheet.insertRule(`.site-header--container { margin: 0 !important; }`);
         sheet.insertRule(`.profile-cards {
             justify-content: space-between;
         }`);
@@ -72,11 +81,16 @@
         profileElem.append(leftSidebar);
         aboutMeElem.append(statsWrap);
         const fixCompatibility = (about, communities) => {
-            const incompatible = communities.querySelectorAll(".flex--item .ow-break-word");
-            if (!incompatible.length)
+            const strayQuery = ".flex--item .ow-break-word";
+            const inCommunities = communities.querySelectorAll(strayQuery);
+            const inAboutMe = d.querySelectorAll(`.s-prose ${strayQuery}`);
+            if (!inCommunities.length && !inAboutMe.length)
                 return;
             const correctList = about.querySelector("ul");
-            correctList === null || correctList === void 0 ? void 0 : correctList.append(...incompatible);
+            if (inCommunities.length)
+                correctList === null || correctList === void 0 ? void 0 : correctList.append(...inCommunities);
+            if (inAboutMe.length)
+                correctList === null || correctList === void 0 ? void 0 : correctList.append(...inAboutMe);
         };
         fixCompatibility(aboutMeElem, profileCommunities);
         const compatiibilityObserver = new MutationObserver(() => {
