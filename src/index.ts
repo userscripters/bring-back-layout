@@ -37,7 +37,8 @@
         sheet.insertRule(
             `
             .left-sidebar,
-            .site-header--link {
+            .site-header--link,
+            .site-footer--container {
                 margin: 0 1vw !important;
             }`
         );
@@ -61,6 +62,11 @@
 
     w.addEventListener("load", () => {
         addStyles(d);
+
+        // align headers in help center to the left
+        d.querySelector("#mainbar .s-page-title--text")?.classList.add(
+            "as-start"
+        );
 
         const topMenu = d.querySelector(".top-bar [role=menubar]");
         if (!topMenu) return console.debug("missing top menu");

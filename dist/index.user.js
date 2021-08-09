@@ -44,7 +44,8 @@
         `);
         sheet.insertRule(`
             .left-sidebar,
-            .site-header--link {
+            .site-header--link,
+            .site-footer--container {
                 margin: 0 1vw !important;
             }`);
         sheet.insertRule(`
@@ -57,8 +58,9 @@
             }`);
     };
     w.addEventListener("load", () => {
-        var _a, _b;
+        var _a, _b, _c;
         addStyles(d);
+        (_a = d.querySelector("#mainbar .s-page-title--text")) === null || _a === void 0 ? void 0 : _a.classList.add("as-start");
         const topMenu = d.querySelector(".top-bar [role=menubar]");
         if (!topMenu)
             return console.debug("missing top menu");
@@ -66,7 +68,7 @@
         const main = d.getElementById("main-content");
         if (!main)
             return console.debug("missing main");
-        const profileElem = (_a = d.querySelector(".profile-avatar")) === null || _a === void 0 ? void 0 : _a.parentElement;
+        const profileElem = (_b = d.querySelector(".profile-avatar")) === null || _b === void 0 ? void 0 : _b.parentElement;
         if (!profileElem)
             return console.debug("missing profile avatar");
         const aboutMeContent = d.querySelector(".s-prose");
@@ -80,7 +82,7 @@
         if (!leftSidebar)
             return console.debug("missing left sidebar element");
         leftSidebar.classList.add("mt48");
-        const statsWrap = (_b = d.querySelector("#badges")) === null || _b === void 0 ? void 0 : _b.closest(".d-flex");
+        const statsWrap = (_c = d.querySelector("#badges")) === null || _c === void 0 ? void 0 : _c.closest(".d-flex");
         if (!statsWrap)
             return console.debug("missing stats element");
         statsWrap.classList.add("mt16");
