@@ -121,10 +121,12 @@
             const inCommunities = communities.querySelectorAll(strayQuery);
             const inAboutMe = d.querySelectorAll(`.s-prose ${strayQuery}`);
 
-            const correctList = aboutMeContent
-                .closest(".flex--item")
-                ?.nextElementSibling?.querySelector("ul");
+            const wrapper = aboutMeContent.closest(".flex--item");
+            if (!wrapper) return console.debug("no anchor point to fix");
 
+            const { nextElementSibling: right } = wrapper;
+
+            const correctList = (right || wrapper).querySelector("ul");
             if (inCommunities.length) correctList?.append(...inCommunities);
             if (inAboutMe.length) correctList?.append(...inAboutMe);
         };

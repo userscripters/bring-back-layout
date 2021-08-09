@@ -93,12 +93,14 @@
         profileElem.append(leftSidebar);
         aboutMeElem.append(statsWrap);
         const fixCompatibility = (aboutMeContent, communities) => {
-            var _a, _b;
             const strayQuery = ".flex--item .ow-break-word";
             const inCommunities = communities.querySelectorAll(strayQuery);
             const inAboutMe = d.querySelectorAll(`.s-prose ${strayQuery}`);
-            const correctList = (_b = (_a = aboutMeContent
-                .closest(".flex--item")) === null || _a === void 0 ? void 0 : _a.nextElementSibling) === null || _b === void 0 ? void 0 : _b.querySelector("ul");
+            const wrapper = aboutMeContent.closest(".flex--item");
+            if (!wrapper)
+                return console.debug("no anchor point to fix");
+            const { nextElementSibling: right } = wrapper;
+            const correctList = (right || wrapper).querySelector("ul");
             if (inCommunities.length)
                 correctList === null || correctList === void 0 ? void 0 : correctList.append(...inCommunities);
             if (inAboutMe.length)
