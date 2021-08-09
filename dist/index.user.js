@@ -13,7 +13,7 @@
 // @namespace       userscripters
 // @source          git@github.com:userscripters/bring-back-layout.git
 // @supportURL      https://github.com/userscripters/bring-back-layout/issues
-// @version         0.9.0
+// @version         0.10.0
 // ==/UserScript==
 
 "use strict";
@@ -38,7 +38,7 @@
                 justify-content: unset !important;
             }`);
         sheet.insertRule(`
-            #content, #mainbar {
+            #content {
                 width: 100% !important;
             }
         `);

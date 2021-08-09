@@ -28,7 +28,7 @@
 
         /* makes content span the whole width */
         sheet.insertRule(`
-            #content, #mainbar {
+            #content {
                 width: 100% !important;
             }
         `);
