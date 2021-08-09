@@ -13,7 +13,7 @@
 // @namespace       userscripters
 // @source          git@github.com:userscripters/bring-back-layout.git
 // @supportURL      https://github.com/userscripters/bring-back-layout/issues
-// @version         0.8.0
+// @version         0.9.0
 // ==/UserScript==
 
 "use strict";
@@ -80,21 +80,20 @@
         statsWrap.append(...statItems);
         profileElem.append(leftSidebar);
         aboutMeElem.append(statsWrap);
-        const fixCompatibility = (about, communities) => {
+        const fixCompatibility = (aboutMeContent, communities) => {
+            var _a, _b;
             const strayQuery = ".flex--item .ow-break-word";
             const inCommunities = communities.querySelectorAll(strayQuery);
             const inAboutMe = d.querySelectorAll(`.s-prose ${strayQuery}`);
-            if (!inCommunities.length && !inAboutMe.length)
-                return;
-            const correctList = about.querySelector("ul");
+            const correctList = (_b = (_a = aboutMeContent
+                .closest(".flex--item")) === null || _a === void 0 ? void 0 : _a.nextElementSibling) === null || _b === void 0 ? void 0 : _b.querySelector("ul");
             if (inCommunities.length)
                 correctList === null || correctList === void 0 ? void 0 : correctList.append(...inCommunities);
             if (inAboutMe.length)
                 correctList === null || correctList === void 0 ? void 0 : correctList.append(...inAboutMe);
         };
-        fixCompatibility(aboutMeElem, profileCommunities);
         const compatiibilityObserver = new MutationObserver(() => {
-            fixCompatibility(aboutMeElem, profileCommunities);
+            fixCompatibility(aboutMeContent, profileCommunities);
         });
         compatiibilityObserver.observe(main, {
             childList: true,
