@@ -24,27 +24,37 @@
         const { sheet } = style;
         if (!sheet)
             return;
-        sheet.insertRule(`.container,
+        sheet.insertRule(`
+            .container,
             .site-header--container,
             .site-footer--container,
             .site-footer--extra,
             #content {
                 max-width: unset !important;
-                width: unset !important;
             }`);
-        sheet.insertRule(`.left-sidebar,
-            .site-header--link,
-            #content {
+        sheet.insertRule(`
+            .container {
+                margin: 0 !important;
+                justify-content: unset !important;
+            }`);
+        sheet.insertRule(`
+            #content, #mainbar {
+                width: 100% !important;
+            }
+        `);
+        sheet.insertRule(`
+            .left-sidebar,
+            .site-header--link {
                 margin: 0 1vw !important;
             }`);
-        sheet.insertRule(`.site-footer--container {
+        sheet.insertRule(`
+            .site-footer--container {
                 width: unset !important;
                 padding-right: 0;
             }`);
-        sheet.insertRule(`.site-header--container { margin: 0 !important; }`);
         sheet.insertRule(`.profile-cards {
-            justify-content: space-between;
-        }`);
+                justify-content: space-between;
+            }`);
     };
     w.addEventListener("load", () => {
         var _a, _b;

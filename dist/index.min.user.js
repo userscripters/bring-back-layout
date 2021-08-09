@@ -16,20 +16,29 @@
 // @version         0.9.0
 // ==/UserScript==
 
-"use strict";((e,u)=>{e.addEventListener("load",()=>{var e;(e=>{var t=e.createElement("style");e.head.append(t);const n=t["sheet"];n&&(n.insertRule(`.container,
+"use strict";((e,u)=>{e.addEventListener("load",()=>{var e;(e=>{var t=e.createElement("style");e.head.append(t);const n=t["sheet"];n&&(n.insertRule(`
+            .container,
             .site-header--container,
             .site-footer--container,
             .site-footer--extra,
             #content {
                 max-width: unset !important;
-                width: unset !important;
-            }`),n.insertRule(`.left-sidebar,
-            .site-header--link,
-            #content {
+            }`),n.insertRule(`
+            .container {
+                margin: 0 !important;
+                justify-content: unset !important;
+            }`),n.insertRule(`
+            #content, #mainbar {
+                width: 100% !important;
+            }
+        `),n.insertRule(`
+            .left-sidebar,
+            .site-header--link {
                 margin: 0 1vw !important;
-            }`),n.insertRule(`.site-footer--container {
+            }`),n.insertRule(`
+            .site-footer--container {
                 width: unset !important;
                 padding-right: 0;
-            }`),n.insertRule(".site-header--container { margin: 0 !important; }"),n.insertRule(`.profile-cards {
-            justify-content: space-between;
-        }`))})(u);const t=u.querySelector(".top-bar [role=menubar]");if(!t)return console.debug("missing top menu");t.classList.remove("wmx12");var n=u.getElementById("main-content");if(!n)return console.debug("missing main");const i=null===(e=u.querySelector(".profile-avatar"))||void 0===e?void 0:e.parentElement;if(!i)return console.debug("missing profile avatar");const s=u.querySelector(".s-prose"),o=null===s||void 0===s?void 0:s.closest("#user-card > .flex--item");if(!s||!o)return console.debug("missing about me element");const r=u.querySelector(".profile-communities");if(!r)return console.debug("missing communities list");const l=null===r||void 0===r?void 0:r.closest(".flex--item:is(.row > .flex--item)");if(!l)return console.debug("missing left sidebar element");l.classList.add("mt48");const a=null===(e=u.querySelector("#badges"))||void 0===e?void 0:e.closest(".d-flex");if(!a)return console.debug("missing stats element");a.classList.add("mt16"),a.classList.add("fd-column");const d=a.querySelectorAll("#badges, #top-tags, #top-posts");d.forEach(e=>e.classList.add("flex--item")),a.append(...d),i.append(l),o.append(a);const c=new MutationObserver(()=>{((e,t)=>{var n=".flex--item .ow-break-word",t=t.querySelectorAll(n),n=u.querySelectorAll(`.s-prose ${n}`);const i=null===(e=null===(e=e.closest(".flex--item"))||void 0===e?void 0:e.nextElementSibling)||void 0===e?void 0:e.querySelector("ul");t.length&&null!==i&&void 0!==i&&i.append(...t),n.length&&null!==i&&void 0!==i&&i.append(...n)})(s,r)});c.observe(n,{childList:!0,subtree:!0})})})(window,document);
+            }`),n.insertRule(`.profile-cards {
+                justify-content: space-between;
+            }`))})(u);const t=u.querySelector(".top-bar [role=menubar]");if(!t)return console.debug("missing top menu");t.classList.remove("wmx12");var n=u.getElementById("main-content");if(!n)return console.debug("missing main");const i=null===(e=u.querySelector(".profile-avatar"))||void 0===e?void 0:e.parentElement;if(!i)return console.debug("missing profile avatar");const o=u.querySelector(".s-prose"),s=null===o||void 0===o?void 0:o.closest("#user-card > .flex--item");if(!o||!s)return console.debug("missing about me element");const r=u.querySelector(".profile-communities");if(!r)return console.debug("missing communities list");const l=null===r||void 0===r?void 0:r.closest(".flex--item:is(.row > .flex--item)");if(!l)return console.debug("missing left sidebar element");l.classList.add("mt48");const a=null===(e=u.querySelector("#badges"))||void 0===e?void 0:e.closest(".d-flex");if(!a)return console.debug("missing stats element");a.classList.add("mt16"),a.classList.add("fd-column");const d=a.querySelectorAll("#badges, #top-tags, #top-posts");d.forEach(e=>e.classList.add("flex--item")),a.append(...d),i.append(l),s.append(a);const c=new MutationObserver(()=>{((e,t)=>{var n=".flex--item .ow-break-word",t=t.querySelectorAll(n),n=u.querySelectorAll(`.s-prose ${n}`);const i=null===(e=null===(e=e.closest(".flex--item"))||void 0===e?void 0:e.nextElementSibling)||void 0===e?void 0:e.querySelector("ul");t.length&&null!==i&&void 0!==i&&i.append(...t),n.length&&null!==i&&void 0!==i&&i.append(...n)})(o,r)});c.observe(n,{childList:!0,subtree:!0})})})(window,document);

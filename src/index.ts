@@ -7,38 +7,56 @@
 
         /* removes arbitrary restriction on used page width */
         sheet.insertRule(
-            `.container,
+            `
+            .container,
             .site-header--container,
             .site-footer--container,
             .site-footer--extra,
             #content {
                 max-width: unset !important;
-                width: unset !important;
             }`
         );
 
+        /* removes arbitrary restriction on container width */
+        sheet.insertRule(
+            `
+            .container {
+                margin: 0 !important;
+                justify-content: unset !important;
+            }`
+        );
+
+        /* makes content span the whole width */
+        sheet.insertRule(`
+            #content, #mainbar {
+                width: 100% !important;
+            }
+        `);
+
         /* makes left and right margin universally smaller */
         sheet.insertRule(
-            `.left-sidebar,
-            .site-header--link,
-            #content {
+            `
+            .left-sidebar,
+            .site-header--link {
                 margin: 0 1vw !important;
             }`
         );
 
+        /* makes footer span full width */
         sheet.insertRule(
-            `.site-footer--container {
+            `
+            .site-footer--container {
                 width: unset !important;
                 padding-right: 0;
             }`
         );
 
-        sheet.insertRule(`.site-header--container { margin: 0 !important; }`);
-
         /* make activity tab use fullwidth better */
-        sheet.insertRule(`.profile-cards {
-            justify-content: space-between;
-        }`);
+        sheet.insertRule(
+            `.profile-cards {
+                justify-content: space-between;
+            }`
+        );
     };
 
     w.addEventListener("load", () => {
