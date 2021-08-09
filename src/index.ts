@@ -47,9 +47,13 @@
         if (!aboutMeContent || !aboutMeElem)
             return console.debug("missing about me element");
 
-        const leftSidebar = d
-            .querySelector(".communities")
-            ?.closest(".flex--item:is(.row > .flex--item)");
+        const profileCommunities = d.querySelector(".profile-communities");
+        if (!profileCommunities)
+            return console.debug("missing communities list");
+
+        const leftSidebar = profileCommunities?.closest(
+            ".flex--item:is(.row > .flex--item)"
+        );
         if (!leftSidebar) return console.debug("missing left sidebar element");
 
         leftSidebar.classList.add("mt48");
@@ -69,5 +73,28 @@
 
         profileElem.append(leftSidebar);
         aboutMeElem.append(statsWrap);
+
+        const fixCompatibility = (about: Element, communities: Element) => {
+            // for compatibility with https://stackapps.com/q/9074/78873
+            const incompatible = communities.querySelectorAll(
+                ".flex--item .ow-break-word"
+            );
+
+            if (!incompatible.length) return;
+
+            const correctList = about.querySelector("ul");
+            correctList?.append(...incompatible);
+        };
+
+        fixCompatibility(aboutMeElem, profileCommunities);
+
+        const compatiibilityObserver = new MutationObserver(() => {
+            fixCompatibility(aboutMeElem, profileCommunities);
+        });
+
+        compatiibilityObserver.observe(main, {
+            childList: true,
+            subtree: true,
+        });
     });
 })(window, document);

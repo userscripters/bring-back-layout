@@ -38,7 +38,7 @@
         }`);
     };
     w.addEventListener("load", () => {
-        var _a, _b, _c;
+        var _a, _b;
         addStyles(d);
         const topMenu = d.querySelector(".top-bar [role=menubar]");
         if (!topMenu)
@@ -54,12 +54,14 @@
         const aboutMeElem = aboutMeContent === null || aboutMeContent === void 0 ? void 0 : aboutMeContent.closest("#user-card > .flex--item");
         if (!aboutMeContent || !aboutMeElem)
             return console.debug("missing about me element");
-        const leftSidebar = (_b = d
-            .querySelector(".communities")) === null || _b === void 0 ? void 0 : _b.closest(".flex--item:is(.row > .flex--item)");
+        const profileCommunities = d.querySelector(".profile-communities");
+        if (!profileCommunities)
+            return console.debug("missing communities list");
+        const leftSidebar = profileCommunities === null || profileCommunities === void 0 ? void 0 : profileCommunities.closest(".flex--item:is(.row > .flex--item)");
         if (!leftSidebar)
             return console.debug("missing left sidebar element");
         leftSidebar.classList.add("mt48");
-        const statsWrap = (_c = d.querySelector("#badges")) === null || _c === void 0 ? void 0 : _c.closest(".d-flex");
+        const statsWrap = (_b = d.querySelector("#badges")) === null || _b === void 0 ? void 0 : _b.closest(".d-flex");
         if (!statsWrap)
             return console.debug("missing stats element");
         statsWrap.classList.add("mt16");
@@ -69,5 +71,20 @@
         statsWrap.append(...statItems);
         profileElem.append(leftSidebar);
         aboutMeElem.append(statsWrap);
+        const fixCompatibility = (about, communities) => {
+            const incompatible = communities.querySelectorAll(".flex--item .ow-break-word");
+            if (!incompatible.length)
+                return;
+            const correctList = about.querySelector("ul");
+            correctList === null || correctList === void 0 ? void 0 : correctList.append(...incompatible);
+        };
+        fixCompatibility(aboutMeElem, profileCommunities);
+        const compatiibilityObserver = new MutationObserver(() => {
+            fixCompatibility(aboutMeElem, profileCommunities);
+        });
+        compatiibilityObserver.observe(main, {
+            childList: true,
+            subtree: true,
+        });
     });
 })(window, document);
