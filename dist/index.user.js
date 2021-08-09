@@ -29,7 +29,8 @@
             }`);
         sheet.insertRule(`.left-sidebar,
             .site-header--container,
-            .site-footer--container {
+            .site-footer--container,
+            .top-bar [role=menubar] {
                 margin: 0 1vw !important;
             }`);
         sheet.insertRule(`.profile-cards {
@@ -39,6 +40,10 @@
     w.addEventListener("load", () => {
         var _a, _b, _c;
         addStyles(d);
+        const topMenu = d.querySelector(".top-bar [role=menubar]");
+        if (!topMenu)
+            return console.debug("missing top menu");
+        topMenu.classList.remove("wmx12");
         const main = d.getElementById("main-content");
         if (!main)
             return console.debug("missing main");

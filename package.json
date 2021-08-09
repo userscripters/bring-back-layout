@@ -28,7 +28,7 @@
     "build": "npm run clean && tsc && npm run uglify && npm run headers && npm run readme",
     "headers": "bash ./scripts/headers.sh",
     "readme": "generate-readme",
-    "postversion": "npm run build && git commit --all --amend --no-edit"
+  "postversion": "bash ./scripts/postversion.sh"
   },
   "devDependencies": {
     "@userscripters/generate-headers": "^1.6.4",
