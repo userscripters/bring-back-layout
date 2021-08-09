@@ -87,22 +87,26 @@
         profileElem.append(leftSidebar);
         aboutMeElem.append(statsWrap);
 
-        const fixCompatibility = (about: Element, communities: Element) => {
+        const fixCompatibility = (
+            aboutMeContent: Element,
+            communities: Element
+        ) => {
             // for compatibility with https://stackapps.com/q/9074/78873
-            const incompatible = communities.querySelectorAll(
-                ".flex--item .ow-break-word"
-            );
+            const strayQuery = ".flex--item .ow-break-word";
 
-            if (!incompatible.length) return;
+            const inCommunities = communities.querySelectorAll(strayQuery);
+            const inAboutMe = d.querySelectorAll(`.s-prose ${strayQuery}`);
 
-            const correctList = about.querySelector("ul");
-            correctList?.append(...incompatible);
+            const correctList = aboutMeContent
+                .closest(".flex--item")
+                ?.nextElementSibling?.querySelector("ul");
+
+            if (inCommunities.length) correctList?.append(...inCommunities);
+            if (inAboutMe.length) correctList?.append(...inAboutMe);
         };
 
-        fixCompatibility(aboutMeElem, profileCommunities);
-
         const compatiibilityObserver = new MutationObserver(() => {
-            fixCompatibility(aboutMeElem, profileCommunities);
+            fixCompatibility(aboutMeContent, profileCommunities);
         });
 
         compatiibilityObserver.observe(main, {
