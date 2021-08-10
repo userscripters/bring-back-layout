@@ -13,7 +13,7 @@
 // @namespace       userscripters
 // @source          git@github.com:userscripters/bring-back-layout.git
 // @supportURL      https://github.com/userscripters/bring-back-layout/issues
-// @version         1.0.0
+// @version         1.1.0
 // ==/UserScript==
 
 "use strict";((n,u,o)=>{n.addEventListener("scroll",()=>{var{hash:e,pathname:t}=o;!/#comment\d+/.test(e)&&!/questions\/\d+\/.+?\/\d+#\d+/.test(`${t}${e}`)||(e=u.querySelector(".top-bar [role=menubar]"))&&n.scrollBy(0,-parseInt(n.getComputedStyle(e).height)-30)},{once:!0}),n.addEventListener("load",()=>{var e;(e=>{var t=e.createElement("style");e.head.append(t);const n=t["sheet"];n&&(n.insertRule(`
