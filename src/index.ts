@@ -1,4 +1,4 @@
-((w, d) => {
+((w, d, l) => {
     const addStyles = (d: Document) => {
         const style = d.createElement("style");
         d.head.append(style);
@@ -59,6 +59,26 @@
             }`
         );
     };
+
+    // adjust scroll position to avoid content hiding under the top bar
+    w.addEventListener(
+        "scroll",
+        () => {
+            const { hash, pathname } = l;
+
+            if (
+                !/#comment\d+/.test(hash) &&
+                !/questions\/\d+\/.+?\/\d+#\d+/.test(`${pathname}${hash}`)
+            )
+                return;
+
+            const topMenu = d.querySelector(".top-bar [role=menubar]");
+            if (!topMenu) return;
+
+            w.scrollBy(0, -parseInt(w.getComputedStyle(topMenu).height) - 30);
+        },
+        { once: true }
+    );
 
     w.addEventListener("load", () => {
         addStyles(d);
@@ -140,4 +160,4 @@
             subtree: true,
         });
     });
-})(window, document);
+})(window, document, location);
