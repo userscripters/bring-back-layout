@@ -34,6 +34,6 @@
     "@userscripters/generate-headers": "^3.4.0",
     "@userscripters/generate-readme": "^2.3.1",
     "typescript": "^4.8.4",
-    "uglify-js": "^3.17.2"
+    "uglify-js": "^3.17.3"
   }
 }
