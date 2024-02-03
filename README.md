@@ -1,12 +1,13 @@
 
 # About
 
-| Author       | Oleg Valter<br>email: [oleg.a.valter@gmail.com](mailto:oleg.a.valter@gmail.com) |
+| Author       | Oleg Valter<br>[oleg.a.valter@gmail.com](mailto:oleg.a.valter@gmail.com) |
 | :----------- | :----------------------- |
-| Name         | @userscripters/bring-back-layout    |
-| Description  | Fix SE layout issues without waiting 6 to 8 weeks           |
-| License      | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later)                 |
-| Version      | 1.1.0               |
+| Name | @userscripters/bring-back-layout |
+| Description | Fix SE layout issues without waiting 6 to 8 weeks |
+| License | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later) |
+| Version | 1.1.0 |
+
 
 # Support
 
