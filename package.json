@@ -33,7 +33,7 @@
   "devDependencies": {
     "@userscripters/generate-headers": "^3.4.1",
     "@userscripters/generate-readme": "^3.0.2",
-    "typescript": "^5.5.3",
+    "typescript": "^5.5.4",
     "uglify-js": "^3.19.0"
   }
 }
